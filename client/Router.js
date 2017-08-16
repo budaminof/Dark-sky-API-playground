@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
-import App from './components/App';
+import App from './components/app/App';
 
 class Router extends Component {
     constructor(props) {
