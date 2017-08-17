@@ -1,16 +1,19 @@
-import p from 'es6-promise';
-p.polyfill();
+// import p from 'es6-promise';
+// p.polyfill();
 import axios from 'axios';
 import { NEW_SEARCH  } from './types';
 
-const geocoder = new google.maps.Geocoder();
+let ROOT_UTL;
+
+if(window.location.origin === "http://localhost:8080") {
+  ROOT_UTL = 'http://localhost:3000/api';
+  } else { ROOT_UTL = '/api'; }
+
 
 export default function (data) {
   console.log("ACTION", data);
-  const request =
-    axios.get(`https://api.darksky.net/forecast/6b3b58513086d3ad139fc7443d17dcfc/${data.lat},${data.lng}`)
-                            .then((data) => {
-                                console.log("DARK SKY", data);
+  const request = axios.get(`${ROOT_UTL}/${data.lat}/${data.lng}`).then((res) => {
+                                console.log("DARK SKY", res);
                                 return data;
                             });
 

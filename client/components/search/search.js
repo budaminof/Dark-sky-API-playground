@@ -3,7 +3,7 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 import { newSearch } from '../../actions';
 const geocoder = new google.maps.Geocoder();
 
-class SimpleForm extends React.Component {
+class SearchLocation extends React.Component {
   constructor(props) {
     super(props)
     this.state = { address: 'Boulder, CO' }
@@ -54,4 +54,4 @@ class SimpleForm extends React.Component {
   }
 }
 
-export default SimpleForm;
+export default SearchLocation;

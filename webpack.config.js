@@ -24,10 +24,9 @@ const config = {
             loaders: ['style-loader', 'css-loader', 'sass-loader'],
             exclude: /node_modules/,
         }, {
-          test: /\.(png|jpg)$/,
-          include: `${__dirname}/client/images`,
-          loader: 'url-loader'
-       }]
+              test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?.*$|$)/,
+              loader: `file-loader?name=assets/[name]${DEV ? '' : '.[hash]'}.[ext]`
+            }]
     },
     resolve: {
         extensions: ['.js', '.jsx']
