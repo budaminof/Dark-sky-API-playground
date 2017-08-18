@@ -1,9 +1,9 @@
-import { NEW_SEARCH } from '../actions/types';
+import { NEW_DATA } from '../actions/types';
 
 export default function (state = { search: null }, action) {
     switch (action.type) {
-        case NEW_SEARCH:
-            return {...state, search: action.payload.data };
+        case NEW_DATA:
+            return {...state, data: action.payload };
 
         default:
             return state;

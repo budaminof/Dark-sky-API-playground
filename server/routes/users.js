@@ -3,12 +3,24 @@ const router = express.Router();
 const request = require('request');
 require('dotenv').load();
 
-router.get('/:lat/:lng', function(req, res, next) {
-  let DARK_SKY = `https://api.darksky.net/forecast/${process.env.API_KEY}/${req.params.lat},${req.params.lng}`;
+const DarkSky = require('dark-sky')
+const darksky = new DarkSky(process.env.API_KEY);
 
-  request.get(DARK_SKY, function (error, response, body) {
-      }).pipe(res);
-
-});
+router.get('/:lat/:lng', async (req, res, next) => {
+  try {
+    let latitude = req.params.lat;
+    let longitude = req.params.lng;
+    const forecast = await darksky
+      .options({
+        latitude,
+        longitude
+      })
+      .get()
+      console.log(forecast);
+    res.status(200).json(forecast)
+  } catch (err) {
+    next(err)
+  }
+})
 
 module.exports = router;
