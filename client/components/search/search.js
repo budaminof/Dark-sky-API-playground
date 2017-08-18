@@ -26,11 +26,28 @@ class SearchLocation extends React.Component {
       value: this.state.address,
       onChange: this.onChange,
     }
+
+    const cssClasses =  {
+      root: 'form-group'
+
+    }
+
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <PlacesAutocomplete inputProps={ inputProps } />
-        <button type="submit">SEARCH</button>
-      </form>
+      <div className="row">
+        <div className="container col-md-4 col-md-offset-4">
+          <div className="form-location">
+            <form onSubmit={this.handleFormSubmit}>
+              <PlacesAutocomplete
+                inputProps={ inputProps }
+
+                />
+              <div className="btn-wrapper">
+                <button type="submit">search</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     )
   }
 }

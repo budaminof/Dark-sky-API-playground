@@ -1,14 +1,22 @@
-.search {
-  display: flex;
-  justify-content: center;
+.form-location {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
 
-  form {
-    input[type="text"] {
-      padding: 5px;
-      font-size: $base-font-size;
-      border: solid 1px rgb(107, 107, 107);
-      width: 100%;
+  .btn-wrapper {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+
+    button {
+      text-transform: uppercase;
+      padding: 5px 20px;
+      border: none;
+      background-color: $base-color;
+      color: white;
+      border-radius: 2px;
     }
   }
-
 }

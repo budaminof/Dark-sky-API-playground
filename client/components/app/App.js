@@ -5,9 +5,9 @@ import Weather from '../weather/weather';
 export default class App extends Component {
   render() {
     return (
-      <div className='logo'>
+      <div className='app'>
+        <h5 className="logo"><img src="../darksky.png"></img>Powered by Dark Sky</h5>
         <Search />
-        <h4><img src="../darksky.png"></img> Powered by Dark Sky</h4>
         <Weather />
       </div>
     );
