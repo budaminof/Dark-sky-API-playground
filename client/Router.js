@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import App from './components/app/App';
-import NewSearch from './components/search/search';
 
 class Router extends PureComponent {
     constructor(props) {
@@ -13,9 +12,8 @@ class Router extends PureComponent {
         return (
             <BrowserRouter>
                 <div>
-                  <App />
                     <Switch>
-                        <Route exact path='/' component={ NewSearch }/>
+                        <Route exact path='/' component={ App }/>
                         <Redirect from='*' to='/'/>
                     </Switch>
                 </div>
