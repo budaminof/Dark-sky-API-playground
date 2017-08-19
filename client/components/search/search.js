@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-import { newSearch } from '../../actions';
+import { newSearch, handleError } from '../../actions';
 
 const geocoder = new google.maps.Geocoder();
 
@@ -25,10 +25,11 @@ class SearchLocation extends React.Component {
     geocodeByAddress(this.state.address)
       .then(results => getLatLng(results[0]))
       .then(latLng => this.props.newSearch(latLng))
-      .catch(error => console.error('Error', error))
+      .catch(error => this.props.handleError(error))
   }
 
   render() {
+    console.log(this.props);
     const inputProps = {
       value: this.state.address,
       onChange: this.onChange,
@@ -57,6 +58,10 @@ class SearchLocation extends React.Component {
                   search
                 </button>
               </div>
+              { this.props.search.error ?
+                <h4 className="danger">Something went wrong, can you please try again?</h4>
+                : <p></p>
+              }
             </form>
           </div>
         </div>
@@ -65,7 +70,10 @@ class SearchLocation extends React.Component {
   }
 }
 
-export default connect(null, { newSearch })(SearchLocation);
+function mapStateToProps(state) {
+  return { search: state.search }
+}
+export default connect(mapStateToProps, { newSearch, handleError })(SearchLocation);
 
 
 // getCurrentLocation() {
