@@ -10,10 +10,10 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className='app'>
         <h5 className="logo"><img src="../darksky.png"></img>Powered by Dark Sky</h5>
+        <h1>Winter is coming</h1>
         <Search />
         { !!this.props.weather && <Weather forecast={ this.props.weather }/> }
         { !!this.props.weather && <Graph forecast={ this.props.weather }/> }

@@ -1,9 +1,19 @@
 .app {
   height: 50%;
+
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: $base-font-size * 3;
+    letter-spacing: 0.5em;
+    font-weight: bold;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
   .logo {
     text-align: center;
     margin-bottom: 20px;
-    margin-top: 0px;
+    margin-top: 10px;
 
     img {
       height: 1.5em;
