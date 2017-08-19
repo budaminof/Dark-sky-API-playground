@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer , linearGradient } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis,
+  Tooltip, CartesianGrid, ResponsiveContainer , linearGradient } from 'recharts';
 import moment from 'moment';
 import createReactClass from 'create-react-class';
 
 
 const CustomizedLabel = createReactClass({
   render () {
-    const {x, y, stroke, value} = this.props;
-   	return <text x={x} y={y} dy={-4} fill={stroke} fontSize={10} textAnchor="middle">{value}</text>
+    const { x, y, stroke, value } = this.props;
+   	return <text x={ x } y={ y } dy={ -4 } fill={ stroke }
+              fontSize={ 10 } textAnchor="middle">{ value }</text>
   }
 });
 
@@ -16,7 +18,7 @@ export default class Graph extends Component {
   render() {
     let forecast = this.props.forecast.data.daily.data
     let data = [];
-
+    // get temp data for the coming week.
     for (var i = 0; i < forecast.length; i++) {
       let obj = {
           name: moment().add(i, 'days').format('dddd').split('').slice(0,3).join(''),
@@ -28,7 +30,7 @@ export default class Graph extends Component {
 
     return (
       <div className='graph container col-md-10 col-md-offset-1'>
-        <h3> Let's look at this week </h3>
+        <h3> How is our week looking? </h3>
 
         <ResponsiveContainer width="100%" height={ 300 } >
           <AreaChart

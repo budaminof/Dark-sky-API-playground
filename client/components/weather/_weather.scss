@@ -1,24 +1,28 @@
 .weather {
 
   .forecast {
-    height: 350px;
     border: 2px black solid;
     margin-top: 50px;
     text-align: center;
 
+    h3 {
+      span {
+        margin-right: 20px;
+      }
+    }
+
     h4 {
-      margin-top: 50px;
-      margin-bottom: 10px;
+      margin-top: 40px;
+      letter-spacing: 0.1em;;
     }
 
     img {
       height: 10em;
       height: 250px;
       width: 250px;
-
+      // animation settings
       margin: 0 auto;
-      // background-color: red;
-      animation-name: stretch;
+      animation-name: breathing;
       animation-duration: 2.5s;
       animation-timing-function: ease-out;
       animation-delay: 0;
@@ -28,34 +32,14 @@
       animation-play-state: running;
     }
 
-    @keyframes stretch {
+    @keyframes breathing {
       0% {
-        transform: scale(.8);
-        // background-color: red;
-      }
-      50% {
-        // background-color: orange;
+        transform: scale(.9);
       }
       100% {
         transform: scale(1);
-        // background-color: yellow;
       }
     }
 
   }
 }
-
-// above 50  red is 0 , blue goes up, green goes down slower
-// under 50 reds is up, blue is down, green is up slowly
-
-// rgb(0, 100, 125) => 0
-//
-// rgb(0, 200, 100) => 25
-//
-// rgb(25, 250, 75) => 50
-//
-// rgb(100, 50, 50) => 75
-//
-// rgb(200, 150, 25) => 100
-//
-// rgb(255, 250, 0) => 140
