@@ -8,19 +8,10 @@ export default class Graph extends Component {
     console.log("Graph: ", this.props.forecast.data.daily.data);
     let forecast = this.props.forecast.data.daily.data
     let data = [];
-    let days = [
-      moment().format('dddd').split('').slice(0,3).join(''),
-      moment().subtract(1, 'days').format('dddd').split('').slice(0,3).join(''),
-      moment().subtract(2, 'days').format('dddd').split('').slice(0,3).join(''),
-      moment().subtract(3, 'days').format('dddd').split('').slice(0,3).join(''),
-      moment().subtract(4, 'days').format('dddd').split('').slice(0,3).join(''),
-      moment().subtract(5, 'days').format('dddd').split('').slice(0,3).join(''),
-      moment().subtract(6, 'days').format('dddd').split('').slice(0,3).join('')
-      ];
 
     for (var i = 0; i < forecast.length; i++) {
       let obj = {
-          name: days[i],
+          name: moment().subtract(i, 'days').format('dddd').split('').slice(0,3).join(''),
           Min_Temp: forecast[i].temperatureMin,
           Max_Temp: forecast[i].temperatureMax
         }
