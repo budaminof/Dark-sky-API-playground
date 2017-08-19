@@ -17,6 +17,12 @@
       background-color: $base-color;
       color: white;
       border-radius: 2px;
+      transition: ease all 1s;
+    }
+
+    button:active, button:hover {
+      transition: ease all 1s;
+      background-color: var(--temp-color-lighter);
     }
   }
 }

@@ -13,8 +13,9 @@ class SearchLocation extends React.Component {
      }
     this.onChange = (address) => this.setState({ address })
   }
-
-  componentWillMount() {
+  // use componentDidMount and not componentWillMount
+  // that way i know that the component is already mounted
+  componentDidMount() {
     this.handleFormSubmit(event);
   }
 

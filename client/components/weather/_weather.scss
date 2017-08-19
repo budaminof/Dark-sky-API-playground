@@ -1,17 +1,20 @@
 .weather {
 
   .forecast {
-    border: 2px black solid;
+    border-top: 2px $base-color solid;
+    border-bottom: 2px $base-color solid;
     margin-top: 50px;
     text-align: center;
 
     h3 {
+    color: var(--temp-color-border);
       span {
         margin-right: 20px;
       }
     }
 
     h4 {
+      color: var(--temp-color-border);
       margin-top: 40px;
       letter-spacing: 0.1em;;
     }
@@ -28,8 +31,7 @@
       animation-delay: 0;
       animation-direction: alternate;
       animation-iteration-count: infinite;
-      animation-fill-mode: none;
-      animation-play-state: running;
+
     }
 
     @keyframes breathing {

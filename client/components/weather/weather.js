@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 export default class Weather extends Component {
 

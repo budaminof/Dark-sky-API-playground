@@ -7,16 +7,59 @@ import Graph from '../graph/graph';
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      showForecast: false,
+      tempColor: `hsl(312, 66%, 24%)`
+    }
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ showForecast: true });
+    let temp = nextProps.weather.data.currently.temperature;
+    this.createColors(temp);
+    return
+  }
+
+  createColors(temp) {
+    // full range of hue colors that we will use
+    let fullHue = 300;
+    // -40f to 140f
+    let degrees = 140;
+    // to ignore minus temp for easy calculation
+    let ignoreMinusTemp = 40;
+    // how many F degres is one Hue Unite
+    let fToUnitesOfHue = fullHue / degrees;
+    let newtemp = temp + ignoreMinusTemp;
+    let hue = fullHue - (fToUnitesOfHue * newtemp).toFixed(0);
+    this.setState({ tempColor: `hsl(${hue}, 100%, 48%)`});
+    // set root variables for css
+    // h1 color
+    document.documentElement.style.setProperty(`--temp-color`, `hsl(${ hue }, 100%, 48%)` );
+    // button color
+    document.documentElement.style.setProperty(`--temp-color-lighter`, `hsl(${ hue + 30 }, 100%, 48%)` );
+    // border color
+    document.documentElement.style.setProperty(`--temp-color-border`, `hsl(${ hue - 20 }, 100%, 20%)` );
+    return
   }
 
   render() {
     return (
-      <div className='app'>
+      <div className='app' >
         <h5 className="logo"><img src="../darksky.png"></img>Powered by Dark Sky</h5>
-        <h1>Winter is coming</h1>
+        <h1>
+            Winter is coming
+          </h1>
         <Search />
-        { !!this.props.weather && <Weather forecast={ this.props.weather }/> }
-        { !!this.props.weather && <Graph forecast={ this.props.weather }/> }
+
+          {
+            this.state.showForecast &&
+            <div>
+              <Weather forecast={ this.props.weather }/>
+              <Graph forecast={ this.props.weather }/>
+            </div>
+          }
       </div>
     );
   }
