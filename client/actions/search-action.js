@@ -1,66 +1,107 @@
 import axios from 'axios';
 import { NEW_DATA } from './types';
-  // let data =  {  currently: {
-  //   apparentTemperature : 81.2,
-  //   cloudCover : 0.18,
-  //   dewPoint : 37.22,
-  //   humidity : 0.21,
-  //   icon : "clear-day",
-  //   nearestStormDistance : 0,
-  //   ozone : 297.76,
-  //   precipIntensity : 0.002,
-  //   precipIntensityError : 0,
-  //   precipProbability : 0.17,
-  //   precipType : "rain",
-  //   pressure : 1011.26,
-  //   summary : "Clear",
-  //   temperature : 81.2,
-  //   time : 1503000864,
-  //   uvIndex :8,
-  //   visibility : 10,
-  //   windBearing : 336,
-  //   windGust: 13.3,
-  //   windSpeed : 4.11
-  // },
-  // daily: {
-  //   data: [
-  //     {
-  //     apparentTemperatureMax : 84.5,
-  //     apparentTemperatureMaxTime : 1503014400,
-  //     apparentTemperatureMin : 54.3,
-  //     apparentTemperatureMinTime : 1502971200,
-  //     cloudCover : 0.08,
-  //     dewPoint : 43.48,
-  //     humidity : 0.45,
-  //     icon : "clear-day",
-  //     moonPhase : 0.85,
-  //     ozone : 298.42,
-  //     precipIntensity : 0.0009,
-  //     precipIntensityMax : 0.0048,
-  //     precipIntensityMaxTime : 1503003600,
-  //     precipProbability : 0.07,
-  //     precipType : "rain",
-  //     pressure : 1013.85,
-  //     summary : "Clear throughout the day.",
-  //     sunriseTime : 1502972177,
-  //     sunsetTime : 1503021406,
-  //     temperatureMax : 84.5,
-  //     temperatureMaxTime : 1503014400,
-  //     temperatureMin : 54.3,
-  //     temperatureMinTime : 1502971200,
-  //     time : 1502949600,
-  //     uvIndex : 9,
-  //     uvIndexTime : 1502996400,
-  //     visibility : 10,
-  //     windBearing : 272,
-  //     windGust : 15.93,
-  //     windGustTime : 1503007200,
-  //     windSpeed : 2.25
-  //     }
-  //   ],
-  //   icon: "rain",
-  //   summary: "Light rain on Sunday through next Thursday, with temperatures peaking at 87°F on Saturday."
-  // }};
+//   let fake = {
+//     data:
+//   {
+//   "latitude": 47.20296790272209,
+//   "longitude": -123.41670367098749,
+//   "timezone": "America/Los_Angeles",
+//   "currently": {
+//     "time": 1453402675,
+//     "summary": "Rain",
+//     "icon": "rain",
+//     "nearestStormDistance": 0,
+//     "precipIntensity": 0.1685,
+//     "precipIntensityError": 0.0067,
+//     "precipProbability": 1,
+//     "precipType": "rain",
+//     "temperature": 48.71,
+//     "apparentTemperature": 46.93,
+//     "dewPoint": 47.7,
+//     "humidity": 0.96,
+//     "windSpeed": 4.64,
+//     "windGust": 9.86,
+//     "windBearing": 186,
+//     "visibility": 4.3,
+//     "cloudCover": 0.73,
+//     "pressure": 1009.7,
+//     "ozone": 328.35
+//   },
+//   "minutely": {
+//     "summary": "Rain for the hour.",
+//     "icon": "rain",
+//     "data": [
+//       {
+//         "time": 1453402620,
+//         "precipIntensity": 0.1715,
+//         "precipIntensityError": 0.0066,
+//         "precipProbability": 1,
+//         "precipType": "rain"
+//       }
+//     ]
+//   },
+//   "hourly": {
+//     "summary": "Rain throughout the day.",
+//     "icon": "rain",
+//     "data": [
+//       {
+//         "time": 1453399200,
+//         "summary": "Rain",
+//         "icon": "rain",
+//         "precipIntensity": 0.1379,
+//         "precipProbability": 0.85,
+//         "precipType": "rain",
+//         "temperature": 48.16,
+//         "apparentTemperature": 46.41,
+//         "dewPoint": 46.89,
+//         "humidity": 0.95,
+//         "windSpeed": 4.47,
+//         "windGust": 10.22,
+//         "windBearing": 166,
+//         "visibility": 3.56,
+//         "cloudCover": 0.39,
+//         "pressure": 1009.97,
+//         "ozone": 328.71
+//       }
+//     ]
+//   },
+//   "daily": {
+//     "summary": "Light rain throughout the week, with temperatures bottoming out at 48°F on Sunday.",
+//     "icon": "rain",
+//     "data": [
+//       {
+//         "time": 1453363200,
+//         "summary": "Rain throughout the day.",
+//         "icon": "rain",
+//         "sunriseTime": 1453391560,
+//         "sunsetTime": 1453424361,
+//         "moonPhase": 0.43,
+//         "precipIntensity": 0.1134,
+//         "precipIntensityMax": 0.1722,
+//         "precipIntensityMaxTime": 1453392000,
+//         "precipProbability": 0.87,
+//         "precipType": "rain",
+//         "temperatureMin": 41.42,
+//         "temperatureMinTime": 1453363200,
+//         "temperatureMax": 53.27,
+//         "temperatureMaxTime": 1453417200,
+//         "apparentTemperatureMin": 36.68,
+//         "apparentTemperatureMinTime": 1453363200,
+//         "apparentTemperatureMax": 53.27,
+//         "apparentTemperatureMaxTime": 1453417200,
+//         "dewPoint": 46.79,
+//         "humidity": 0.95,
+//         "windSpeed": 4.26,
+//         "windBearing": 150,
+//         "visibility": 4.02,
+//         "cloudCover": 0.77,
+//         "pressure": 1009.35,
+//         "ozone": 326.69
+//       }
+//     ]
+//   }
+// }
+// };
 
 let ROOT_UTL;
 

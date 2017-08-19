@@ -1,34 +1,20 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import createReactClass from 'create-react-class';
-
-let WeatherIcon = createReactClass({
-  render: function() {
-    return <img className="test" src={'/../assets/' + this.props.src + '.png'} ></img>
-  }
-});
 
 export default class Weather extends Component {
-  // contructor(props) {
-  //   super(props);
-  // }
 
   render() {
+    console.log("WEATHER",this.props);
+    let clouds = `linear-gradient( grey, white ${this.props.forecast.data.currently.cloudCover * 100}%)`;
+
     return (
       <div className='weather'>
-        <WeatherIcon src={ "clear-day" } />
+        <div className="forecast container col-md-12"
+          style= {{ backgroundImage: clouds }}
+           >
+           <p> { this.props.forecast.data.daily.summary } </p>
+           <img className="test" src={'/../assets/' + this.props.forecast.data.daily.icon + '.png'} ></img>
+        </div>
       </div>
     );
   }
 }
-
-// mapStateToProps() {
-//
-// }
-//
-// mapStateToProps() {
-//
-// }
-//
-//
-// export default connect(mapStateToProps, mapStateToProps)(Weather);

@@ -22,5 +22,5 @@ const store = dev
 
 ReactDOM.render(
   <Provider store={ store }>
-    <Router/>
+    <Router />
   </Provider>, document.querySelector('#app'));

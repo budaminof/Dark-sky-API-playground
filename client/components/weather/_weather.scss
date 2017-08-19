@@ -1,5 +1,16 @@
+
 .weather {
-  img {
-    // transform: scale(2);
+  --cloud-coverage: 1;
+
+  .forecast {
+    height: 300px;
+    border: 2px black solid;
+    margin-top: 50px;
+    text-align: center;
+    
+
+    img {
+      height: 70px;
+    }
   }
 }

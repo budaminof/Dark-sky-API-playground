@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import App from './components/app/App';
+import Weather from './components/weather/weather';
 
 class Router extends PureComponent {
     constructor(props) {
@@ -11,12 +12,12 @@ class Router extends PureComponent {
     render() {
         return (
             <BrowserRouter>
-                <div>
-                    <Switch>
-                        <Route exact path='/' component={ App }/>
-                        <Redirect from='*' to='/'/>
-                    </Switch>
-                </div>
+                <App>
+                  // <Switch>
+                  //     <Route path='/weather' component={ Weather } />
+                  //     <Redirect from='*' to='/'/>
+                  // </Switch>
+                </App>
             </BrowserRouter>
         );
     }

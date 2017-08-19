@@ -8,12 +8,18 @@ const geocoder = new google.maps.Geocoder();
 class SearchLocation extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { address: 'Boulder, CO' }
+    this.state = {
+      address: 'Boulder, CO'
+     }
     this.onChange = (address) => this.setState({ address })
   }
 
+  componentWillMount() {
+    this.handleFormSubmit(event);
+  }
+
   handleFormSubmit = (event) => {
-    event.preventDefault()
+    if (event) event.preventDefault()
 
     geocodeByAddress(this.state.address)
       .then(results => getLatLng(results[0]))
@@ -29,7 +35,11 @@ class SearchLocation extends React.Component {
 
     const cssClasses =  {
       root: 'form-group'
+    }
 
+    const styleContainer = {
+      autocompleteContainer: { zIndex: 100 },
+      googleLogoContainer: { display: 'none' }
     }
 
     return (
@@ -38,11 +48,13 @@ class SearchLocation extends React.Component {
           <div className="form-location">
             <form onSubmit={this.handleFormSubmit}>
               <PlacesAutocomplete
-                inputProps={ inputProps }
-
+                inputProps ={ inputProps }
+                styles = { styleContainer }
                 />
               <div className="btn-wrapper">
-                <button type="submit">search</button>
+                <button type="submit">
+                  search
+                </button>
               </div>
             </form>
           </div>
@@ -55,22 +67,22 @@ class SearchLocation extends React.Component {
 export default connect(null, { newSearch })(SearchLocation);
 
 
-  // getCurrentLocation() {
-  //   navigator.geolocation.getCurrentPosition(function(position) {
-  //     return position;
-  //   }).then(() => {
-  //     let coords = {
-  //       lat: position.coords.latitude,
-  //       lng: position.coords.longitude
-  //     }
-  //     geocoder.geocode({'location': coords }, function(results, status) {
-  //       if (status === 'OK') {
-  //         if (results[0]) {
-  //           return results[0].formatted_address;
-  //         } else {
-  //           return '';
-  //         }
-  //       }
-  //     })
-  //   })
-  // }
+// getCurrentLocation() {
+//   navigator.geolocation.getCurrentPosition(function(position) {
+//     return position;
+//   }).then(() => {
+//     let coords = {
+//       lat: position.coords.latitude,
+//       lng: position.coords.longitude
+//     }
+//     geocoder.geocode({'location': coords }, function(results, status) {
+//       if (status === 'OK') {
+//         if (results[0]) {
+//           return results[0].formatted_address;
+//         } else {
+//           return '';
+//         }
+//       }
+//     })
+//   })
+// }
