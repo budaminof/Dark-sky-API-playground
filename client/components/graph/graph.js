@@ -19,7 +19,7 @@ export default class Graph extends Component {
 
     for (var i = 0; i < forecast.length; i++) {
       let obj = {
-          name: moment().subtract(i, 'days').format('dddd').split('').slice(0,3).join(''),
+          name: moment().add(i, 'days').format('dddd').split('').slice(0,3).join(''),
           Min_Temp: forecast[i].temperatureMin,
           Max_Temp: forecast[i].temperatureMax
         }
