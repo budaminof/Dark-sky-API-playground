@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer , linearGradient } from 'recharts';
 import moment from 'moment';
+import createReactClass from 'create-react-class';
+
+
+const CustomizedLabel = createReactClass({
+  render () {
+    const {x, y, stroke, value} = this.props;
+   	return <text x={x} y={y} dy={-4} fill={stroke} fontSize={10} textAnchor="middle">{value}</text>
+  }
+});
 
 export default class Graph extends Component {
 
   render() {
-    console.log("Graph: ", this.props.forecast.data.daily.data);
     let forecast = this.props.forecast.data.daily.data
     let data = [];
 
@@ -42,9 +50,9 @@ export default class Graph extends Component {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Area type="monotone" dataKey="Min_Temp"
+            <Area type="monotone" dataKey="Min_Temp" label={ <CustomizedLabel /> }
               stroke="#85d4f5" fillOpacity={ 1 } fill="url(#min)" />
-            <Area type="monotone" dataKey="Max_Temp"
+            <Area type="monotone" dataKey="Max_Temp"  label={ <CustomizedLabel /> }
               stroke="#f5ce69" fillOpacity={ 1 } fill="url(#max)"/>
           </AreaChart>
         </ResponsiveContainer>
