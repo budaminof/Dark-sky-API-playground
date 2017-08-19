@@ -1,16 +1,16 @@
 .weather {
 
   .forecast {
-    border-top: 2px $base-color solid;
-    border-bottom: 2px $base-color solid;
-    margin-top: 50px;
+    // border-top: 2px $base-color solid;
+    // border-bottom: 2px $base-color solid;
     text-align: center;
 
     h3 {
-    color: var(--temp-color-border);
-      span {
-        margin-right: 20px;
-      }
+      margin-top: 100px;
+      color: var(--temp-color);
+        span {
+          margin-right: 20px;
+        }
     }
 
     h4 {

@@ -3,6 +3,7 @@
   margin-left: auto;
   margin-right: auto;
   display: inline-block;
+  padding-bottom: 50px;
 
   .btn-wrapper {
     width: 100%;
@@ -14,21 +15,21 @@
       text-transform: uppercase;
       padding: 5px 20px;
       border: none;
-      background-color: $base-color;
       color: white;
       border-radius: 2px;
       transition: ease all 1s;
+      background-color: var(--temp-color-lighter);
     }
 
     button:active, button:hover {
       transition: ease all 1s;
-      background-color: var(--temp-color-lighter);
+      background-color: var(--temp-color-border);
     }
   }
 
   .danger {
     padding-top: 20px;
     text-align: center;
-    color: red;
+    color: $base-color-white;
   }
 }

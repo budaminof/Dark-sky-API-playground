@@ -54,5 +54,8 @@
     "twitter": "^1.7.1",
     "webpack": "^3.5.4",
     "webpack-dev-server": "^2.7.1"
+  },
+  "devDependencies": {
+    "jest-enzyme": "^3.8.0"
   }
 }
