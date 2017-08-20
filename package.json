@@ -8,8 +8,7 @@
     "dev": "NODE_ENV=development node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --progress --colors",
     "test": "NODE_ENV=development mocha --compilers js:babel-core/register ./client/test/**/*.spec.js",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack",
-    "server": "./node_modules/.bin/nodemon ./server/server.js",
-    "heroku-postbuild": "NODE_ENV=production ./node_modules/.bin/webpack"
+    "server": "./node_modules/.bin/nodemon ./server/server.js"
   },
   "babel": {
     "presets": [
