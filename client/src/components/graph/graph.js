@@ -14,7 +14,6 @@ const CustomizedLabel = createReactClass({
 });
 
 export default class Graph extends Component {
-
   render() {
     let forecast = this.props.forecast.data.daily.data
     let data = [];

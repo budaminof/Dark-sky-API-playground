@@ -9,15 +9,18 @@ describe('----------- Graph ----------------', () => {
 
   it('should render forecast data on the graph', () => {
     const props = {forecast: { data }};
+    
     const wrapper = shallow(<Graph {...props} />);
-    const component = wrapper.getNode();
-    const graphComponent = component.props.children[1];
-    const graphData = graphComponent.props.children.props.data;
-
     expect(wrapper).to.exist;
-    expect(graphComponent).to.exist;
+
+    const component = wrapper.getNode();
     expect(component.props.children[0].props.children).to.equal('How is our week looking?');
-    expect(graphData).to.have.length.of.at.least(1);
+
+    const graphComponent = component.props.children[1];
+    expect(graphComponent).to.exist;
+
+    const graphData = graphComponent.props.children.props.data;
+    expect(graphData).to.have.length(8);
 
   });
 });
