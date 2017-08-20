@@ -3,7 +3,7 @@ const router = express.Router();
 const request = require('request');
 require('dotenv').load();
 
-const DarkSky = require('dark-sky')
+const DarkSky = require('dark-sky');
 const darksky = new DarkSky(process.env.API_KEY);
 
 router.get('/:lat/:lng', async (req, res, next) => {

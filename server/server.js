@@ -9,6 +9,8 @@ const cors = require('cors');
 const users = require('./routes/users');
 const app = express();
 
+let _root = path.resolve(__dirname, '..');
+
 app.set('port', process.env.PORT || 3000);
   var server = app.listen(app.get('port'), function() {
     console.log('Express server listening on port ' + server.address().port);
@@ -22,13 +24,13 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.use('/api', users);
 
 app.all('*', (req, res, next) => {
     res.sendFile('index.html', {
-        root: __dirname + '/dist/'
+        root: _root + '/client/src/'
     });
 });
 

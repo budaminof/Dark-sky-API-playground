@@ -3,10 +3,10 @@ const DEV = process.env.NODE_ENV === 'development';
 
 const config = {
     entry: [
-        './client/index.js'
+        './client/src/index.js'
     ],
     output: {
-        path: `${__dirname}/client/`,
+        path: `${__dirname}/client/src/`,
         filename: 'bundle.js'
     },
     devtool: DEV ? 'source-map' : false,
@@ -19,9 +19,6 @@ const config = {
             options: {
               "presets": [["es2015", {"modules": false}], "stage-1", "react"]
             },
-            // query: {
-            //     presets: ['react', 'es2015', 'stage-1']
-            // }
         }, {
             test: /\.s?css/,
             loaders: ['style-loader', 'css-loader', 'sass-loader'],
@@ -36,14 +33,15 @@ const config = {
     },
     devServer: {
         historyApiFallback: true,
-        contentBase: './client'
+        contentBase: './client/src'
     }
 };
 
 if (!DEV) {
     config.plugins.push(
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
+            'process.env.NODE_ENV': JSON.stringify('production'),
+            'process.env.ROOT_URL': JSON.stringify('/api')
         }),
         new webpack.optimize.UglifyJsPlugin({
             minimize: true,
@@ -57,7 +55,8 @@ if (!DEV) {
 } else {
     config.plugins.push(
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development')
+            'process.env.NODE_ENV': JSON.stringify('development'),
+            'process.env.ROOT_URL': JSON.stringify('http://localhost:3000/api')
         })
     );
 };

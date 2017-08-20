@@ -2,7 +2,7 @@ import React from 'react';
 import {expect} from 'chai';
 import { mount, shallow, render } from 'enzyme';
 import sinon from 'sinon'
-import Weather from '../components/weather/weather';
+import Weather from '../src/components/weather/weather';
 
 // const window = {location: {origin: "http://localhost:8080"}}
 // beforeEach(function() {
