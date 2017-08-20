@@ -6,21 +6,18 @@ require('dotenv').load();
 const DarkSky = require('dark-sky');
 const darksky = new DarkSky(process.env.API_KEY);
 
-router.get('/:lat/:lng', async (req, res, next) => {
+router.get('/:lat/:lng', async function (req, res, next) {
   try {
-    let latitude = req.params.lat;
-    let longitude = req.params.lng;
-    const forecast = await darksky
-      .options({
-        latitude,
-        longitude
-      })
-      .get()
-      console.log(forecast);
-    res.status(200).json(forecast)
+    var latitude = req.params.lat;
+    var longitude = req.params.lng;
+    var forecast = await darksky.options({
+      latitude: latitude,
+      longitude: longitude
+    }).get();
+    console.log(forecast);
+    res.status(200).json(forecast);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
-
+});
 module.exports = router;
