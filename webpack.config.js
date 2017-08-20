@@ -16,9 +16,12 @@ const config = {
             test: /\.jsx?$/,
             exclude: /node_modules/,
             loader: 'babel-loader',
-            query: {
-                presets: ['react', 'es2015', 'stage-1']
-            }
+            options: {
+              "presets": [["es2015", {"modules": false}], "stage-1", "react"]
+            },
+            // query: {
+            //     presets: ['react', 'es2015', 'stage-1']
+            // }
         }, {
             test: /\.s?css/,
             loaders: ['style-loader', 'css-loader', 'sass-loader'],

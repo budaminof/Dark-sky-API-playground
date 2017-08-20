@@ -29,7 +29,6 @@ class SearchLocation extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const inputProps = {
       value: this.state.address,
       onChange: this.onChange,
@@ -74,24 +73,3 @@ function mapStateToProps(state) {
   return { search: state.search }
 }
 export default connect(mapStateToProps, { newSearch, handleError })(SearchLocation);
-
-
-// getCurrentLocation() {
-//   navigator.geolocation.getCurrentPosition(function(position) {
-//     return position;
-//   }).then(() => {
-//     let coords = {
-//       lat: position.coords.latitude,
-//       lng: position.coords.longitude
-//     }
-//     geocoder.geocode({'location': coords }, function(results, status) {
-//       if (status === 'OK') {
-//         if (results[0]) {
-//           return results[0].formatted_address;
-//         } else {
-//           return '';
-//         }
-//       }
-//     })
-//   })
-// }
