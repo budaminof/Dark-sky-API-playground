@@ -1,5 +1,5 @@
-import newSearch from './search-action';
-import handleError from './error-action';
+import { newSearch } from './search-action';
+import { handleError } from './error-action';
 
 export {
   newSearch,

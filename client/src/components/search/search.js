@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { newSearch, handleError } from '../../actions';
-
-const geocoder = new google.maps.Geocoder();
 
 class SearchLocation extends React.Component {
   constructor(props) {
@@ -13,8 +12,7 @@ class SearchLocation extends React.Component {
      }
     this.onChange = (address) => this.setState({ address })
   }
-  // use componentDidMount and not componentWillMount
-  // that way i know that the component is already mounted
+
   componentDidMount() {
     this.handleFormSubmit(event);
   }
@@ -47,7 +45,7 @@ class SearchLocation extends React.Component {
       <div className="row">
         <div className="container col-md-4 col-md-offset-4">
           <div className="form-location">
-            <form onSubmit={this.handleFormSubmit}>
+            <form onSubmit={ this.handleFormSubmit } >
               <PlacesAutocomplete
                 inputProps ={ inputProps }
                 styles = { styleContainer }
@@ -58,7 +56,7 @@ class SearchLocation extends React.Component {
                 </button>
               </div>
               { this.props.search.error ?
-                <h4 className="danger">Something went wrong, can you please try again?</h4>
+                <h4 className="danger">We could not find this address, can you try again?</h4>
                 : <p></p>
               }
             </form>
@@ -72,4 +70,10 @@ class SearchLocation extends React.Component {
 function mapStateToProps(state) {
   return { search: state.search }
 }
+
+
+SearchLocation.propTypes = {
+  handleSubmit: PropTypes.func
+};
+
 export default connect(mapStateToProps, { newSearch, handleError })(SearchLocation);

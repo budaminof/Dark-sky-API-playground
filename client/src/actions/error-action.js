@@ -1,6 +1,6 @@
 import { ERROR } from './types';
 
-export default function (error) {
+export const handleError = () => {
   return {
     type: ERROR,
     payload: true
