@@ -1,14 +1,3 @@
-
-// const window = {location: {origin: "http://localhost:8080"}}
-// beforeEach(function() {
-//   sinon.stub(window.location, 'origin')
-// })
-// afterEach(function () {
-//   window.location.origin.restore()
-// })
-// window.location.origin.returns(window.location.origin)
-
-
 const data =  {
     "latitude": 47.20296790272209,
     "longitude": -123.41670367098749,
