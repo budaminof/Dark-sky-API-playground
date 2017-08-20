@@ -25,14 +25,16 @@ class App extends Component {
   createColors(temp) {
     // full range of hue colors that we will use
     let fullHue = 300;
-    // -40f to 140f
+    // number of F degrees we are mapping to colors -40f to 140f
     let degrees = 140;
-    // to ignore minus temp for easy calculation
+    // ignore minus temp for easy calculation
     let ignoreMinusTemp = 40;
-    // how many F degres is one Hue Unite
+    // how many F degrees is one Hue Unite
     let fToUnitesOfHue = fullHue / degrees;
-    let newtemp = temp + ignoreMinusTemp;
-    let hue = fullHue - (fToUnitesOfHue * newtemp).toFixed(0);
+    let levelTemp = temp + ignoreMinusTemp;
+    // add to the base of fullHue color - and amount of unites which our temp is equal.
+    let hue = fullHue - (fToUnitesOfHue * levelTemp).toFixed(0);
+    
     this.setState({ tempColor: `hsl(${hue}, 100%, 48%)`});
     // set root variables for css
     // h1 color
