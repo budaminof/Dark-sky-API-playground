@@ -10,7 +10,7 @@ const mockStore = configureStore(middlewares);
 
 describe('----------- Search ----------------', () => {
 
-  const wrapper = shallow(<Search />);
+  // const wrapper = shallow(<Search />);
 
   it('should render currectly', () => {
 
