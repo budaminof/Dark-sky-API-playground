@@ -28,7 +28,7 @@ export default class Graph extends Component {
     }
 
     return (
-      <div className='graph container col-md-10 col-md-offset-1'>
+      <div className='graph container col-md-10 col-md-offset-1 col-xs-12'>
         <h3>How is our week looking?</h3>
 
         <ResponsiveContainer width="100%" height={ 300 } >

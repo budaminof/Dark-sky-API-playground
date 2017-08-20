@@ -34,7 +34,7 @@ class App extends Component {
     let levelTemp = temp + ignoreMinusTemp;
     // add to the base of fullHue color - and amount of unites which our temp is equal.
     let hue = fullHue - (fToUnitesOfHue * levelTemp).toFixed(0);
-    
+
     this.setState({ tempColor: `hsl(${hue}, 100%, 48%)`});
     // set root variables for css
     // h1 color
@@ -48,13 +48,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className='app' >
-        <h5 className="logo"><img src="../darksky.png"></img>Powered by Dark Sky</h5>
-        <h1>
-            Winter is coming
-          </h1>
-        <Search />
-
+      <div className='app'>
+        <div className="app-top container col-xs-12">
+          <h5 className="logo"><img src="../darksky.png"></img>Powered by Dark Sky</h5>
+          <h1>
+              Winter is coming
+            </h1>
+          <Search />
+        </div>
           {
             this.state.showForecast &&
             <div>

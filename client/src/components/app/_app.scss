@@ -1,18 +1,20 @@
 .app {
-  height: 60%;
-  background-color: rgb(51, 51, 51);
-  padding-top: 10px;
+  .app-top {
+    height: 60%;
+    background-color: rgb(51, 51, 51);
+    padding-top: 10px;
+  }
 
   h1 {
     text-align: center;
     text-transform: uppercase;
     font-size: $base-font-size * 3;
+    font-weight: bold;
     letter-spacing: 0.5em;
     font-weight: bold;
     margin-top: 1em;
     margin-bottom: 1em;
     transition: ease all 2s;
-    // color: var(--temp-color);
     background: -webkit-linear-gradient( 180deg, var(--temp-color-lighter), var(--temp-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

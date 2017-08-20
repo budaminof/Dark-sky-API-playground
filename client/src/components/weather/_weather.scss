@@ -1,14 +1,14 @@
 .weather {
 
   .forecast {
-    // border-top: 2px $base-color solid;
-    // border-bottom: 2px $base-color solid;
     text-align: center;
 
     h3 {
       margin-top: 100px;
+      font-weight: bold;
       color: var(--temp-color);
         span {
+          font-weight: bold;
           margin-right: 20px;
         }
     }

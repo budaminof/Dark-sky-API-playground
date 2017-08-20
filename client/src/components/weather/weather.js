@@ -8,7 +8,7 @@ export default class Weather extends Component {
 
     return (
       <div className='weather'>
-        <div className="forecast container col-md-12"
+        <div className="forecast col-md-12 col-xs-12"
           style= {{ backgroundImage: clouds }} >
            <h3> { this.props.forecast.data.currently.temperature.toFixed(0) } <span> &deg; </span>
                 { this.props.forecast.data.currently.summary }
