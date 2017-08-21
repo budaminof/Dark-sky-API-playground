@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 export default class Weather extends Component {
 
   render() {
-    // let cloudsBackgroundGradient = `linear-gradient( grey, white ${this.props.forecast.data.currently.cloudCover * 100}%)`;
+
     let numOfClouds = this.props.forecast.data.currently.cloudCover * 10;
     let cloudCoverage = [];
     for (var i = 0; i < numOfClouds; i++) {
@@ -14,7 +14,6 @@ export default class Weather extends Component {
 
     return (
       <div className='weather'>
-
         <div className="clouds">
         { cloudCoverage }
         </div>
