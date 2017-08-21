@@ -1,52 +1,53 @@
 import React from 'react';
-import {expect} from 'chai';
+import { expect } from 'chai';
 import { mount, shallow, render } from 'enzyme';
 import sinon from 'sinon';
 import { SearchLocation } from '../src/components/search/search';
-import axios from 'axios'
-// import PlacesAutocomplete from 'react-places-autocomplete';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-
+import axios from 'axios';
 
 import { newSearch, handleError } from '../src/actions/index';
-import * as types from '../src/actions/types';
 
-const google =axios.get("https://maps.googleapis.com/maps/api/js?key=AIzaSyAiXlfqwH_Js3LIZAhBnT4OHYblZLiu378&&libraries=places")
-
+// const google = axios.get("https://maps.googleapis.com/maps/api/js?key=AIzaSyAiXlfqwH_Js3LIZAhBnT4OHYblZLiu378&&libraries=places")
 
 describe('----------- Search ----------------', () => {
-  const boulderCoords = {lat: 40.0149856, lng: -105.27054559999999};
-  const geocodeByAddress = () => true
-  const getLatLng = () => boulderCoords
-  // const google = () => {geocodeByAddress,getLatLng}
-  // const fakeFunctions = {geocodeByAddress, getLatLng}
-
-
-  it('should render currectly', () => {
-    const props = { search: {
+  const props = {
+    search: {
       error: false,
       newSearch,
       handleError,
-      google
-      }
-    };
+    }
+  };
+  let wrapper;
+  let component;
 
-    const wrapper = shallow(<SearchLocation { ...props } />);
-    // console.log('****',wrapper.getNode().props);
-    const component = wrapper.find(SearchLocation).root.nodes[0].props.children.props.children.props.children.props
-    console.log(component);
-    // sinon.stub(component,'handleFormSubmit').returns({success:true})
-    // expect(component.handleFormSubmit.calledOnce).to.be.true
-    // component.handleFormSubmit.restore()
-    // wrapper.instance().componentDidMount()
-    // const testProps = {handleFormSubmit:wrapper.instance().handleFormSubmit }
-    // console.log(testProps, '***********************');
-    // const component =
-    // sinon.stub(wrapper.instance(), 'componentDidMount');
+  beforeEach(() => {
+    wrapper = shallow(<SearchLocation { ...props } />);
+    component = wrapper.instance();
+    sinon.stub(component, 'handleFormSubmit').returns(true);
 
-    // sinon.stub(testProps,'handleFormSubmit').returns({success:true})
-    // expect(testProps.handleFormSubmit.calledOnce).to.be.true
-    // testProps.handleFormSubmit.restore()
+  })
+  afterEach(() => {
+    component.handleFormSubmit.restore();
+  })
+
+  it('should call handleFormSubmit on componentDidMount without arguments', () => {
+    component.componentDidMount();
+
+    expect(component.handleFormSubmit.calledOnce).to.be.true;
+    expect(component.handleFormSubmit.firstCall.args).to.deep.equal([]);
 
   });
+
+  it('should call handleFormSubmit with arguments from state',function() {
+    const state = {address: 'Boulder, CO'};
+    const form = wrapper.find('form').first();
+
+    // simulate will trigger the google call. and we dont have google require
+    // need to figure out how to require google api script, that is now in index.html
+    // form.simulate('submit');
+    component.handleFormSubmit(state.address);
+    expect(component.handleFormSubmit.calledOnce).to.be.true;
+    expect(component.handleFormSubmit.firstCall.args).to.deep.equal([state.address]);
+
+  })
 });
