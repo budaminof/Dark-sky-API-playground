@@ -7,7 +7,11 @@ To run this project in development:
 
 `` npm install ``
 
-then in two different tab run:
+You will have to create an .env file with you Dark Sky API KEY, for exmaple:
+
+`` API_KEY=jhvsdfjhvblfduvkvjvhsdbflvhdfbv ``
+
+Then in two different tab run:
 
 `` npm run dev ``
 
