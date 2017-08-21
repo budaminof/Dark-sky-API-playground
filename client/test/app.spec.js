@@ -25,11 +25,8 @@ describe('----------- App ----------------', () => {
   const component = wrapper.instance();
 
   it('should mount with default state values', () => {
-
     expect(component.state).to.deep.equal(state);
-    // App should render only one child, div - which search component in it.
     expect(wrapper.children().length).to.be.equal(1);
-
   });
 
   it('should set state when recieving props', () => {
@@ -37,7 +34,7 @@ describe('----------- App ----------------', () => {
 
     component.componentWillReceiveProps(nextState);
     expect(component.state.showForecast).to.be.true;
-    // app component should render 2 div, one with search and one div with Weather and Graph
+    expect(component.createColors.calledOnce).to.be.true;
     expect(wrapper.children().length).to.be.equal(2);
 
     component.createColors.restore();
