@@ -3,11 +3,8 @@ import { expect } from 'chai';
 import { mount, shallow, render } from 'enzyme';
 import sinon from 'sinon';
 import { SearchLocation } from '../src/components/search/search';
-import axios from 'axios';
 
 import { newSearch, handleError } from '../src/actions/index';
-
-// const google = axios.get("https://maps.googleapis.com/maps/api/js?key=AIzaSyAiXlfqwH_Js3LIZAhBnT4OHYblZLiu378&&libraries=places")
 
 describe('----------- Search ----------------', () => {
   const props = {

@@ -4,7 +4,7 @@ import Search from '../search/search';
 import Weather from '../weather/weather';
 import Graph from '../graph/graph';
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
 

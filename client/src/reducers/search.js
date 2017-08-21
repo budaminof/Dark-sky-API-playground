@@ -1,6 +1,6 @@
 import { NEW_DATA, ERROR } from '../actions/types';
 
-export default function (state = { error: false }, action) {
+export default function (state = { error: false, forcast: {} }, action) {
     switch (action.type) {
         case NEW_DATA:
             return {...state, forcast: action.payload, error: false };
