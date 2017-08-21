@@ -11,8 +11,7 @@ describe('----------- Search Reducer ----------------', () => {
   it('should return the initial state', () => {
 
     expect(reducer(undefined, {})).to.deep.equal(
-      { error: false, forcast: {} }
-    )
+      { error: false, forcast: {} })
 
   });
 
