@@ -17,7 +17,7 @@ Then in two different tab run:
 
 `` npm run server ``
 
-To run the tests:
+To run the tests (you will have to run the server):
 
 `` npm run test  ``
 
@@ -27,13 +27,3 @@ Since Webpack is building this app, during development you will need to run one 
 *NOTES:*
 
 Dark Sky API disable CORS, so I setup a basic sever to do the API call.
-
-
-_______________________________________________
-
-*TODO:*
-
-1. finish tests for actions with axios call
-2. finish tests for Search component
-3. strat tests for App component
-4. start tests for reducers
