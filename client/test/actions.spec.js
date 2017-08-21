@@ -35,7 +35,7 @@ describe('----------- Actions ----------------', () => {
     actions.newSearch(boulderCoords);
 
     expect(axios.get.calledOnce).to.be.true;
-    expect(axios.get.firstCall.args).to.deep.equal([`http://localhost:3000/api/${boulderCoords.lat}/${boulderCoords.lng}`]);
+    expect(axios.get.firstCall.args).to.deep.equal([`${process.env.ROOT_URL}/${boulderCoords.lat}/${boulderCoords.lng}`]);
   });
 
   it('should return an action object with a correct action and payload', () => {
