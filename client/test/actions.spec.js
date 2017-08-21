@@ -13,6 +13,14 @@ import * as actions from '../src/actions/index';
 import * as types from '../src/actions/types';
 
 describe('----------- Actions ----------------', () => {
+  const boulderCoords = {lat: 40.0149856, lng: -105.27054559999999};
+  beforeEach(() => {
+    sinon.spy(axios,'get');
+  })
+
+  afterEach(() => {
+    axios.get.restore();
+  })
 
   it('should create an action to handle an error', () => {
     const payload = true;
@@ -23,24 +31,18 @@ describe('----------- Actions ----------------', () => {
     expect(actions.handleError(payload)).to.deep.equal(expectedAction);
   });
 
-  it('should create an action for a new search', () => {
-    const boulderLatLng = {lat: 40.0149856, lng: -105.27054559999999};
+  it('should call axios.get with correct arguments', () => {
+    actions.newSearch(boulderCoords);
 
-    sinon.stub(axios,'get');
-    // cant call .then on undefined.
-    // why is it undefined? and not even a Promise?
-    return actions.newSearch(boulderLatLng).then(() => {
-      expect(axios.get.calledOnce).to.be.true;
-      expect(axios.get.firstCall.args).to.deep.equal(boulderLatLng);
-    })
+    expect(axios.get.calledOnce).to.be.true;
+    expect(axios.get.firstCall.args).to.deep.equal([`http://localhost:3000/api/${boulderCoords.lat}/${boulderCoords.lng}`]);
+  });
 
+  it('should return an action object with a correct action and payload', () => {
+    const result = actions.newSearch(boulderCoords);
 
-    return store.dispatch(actions.newSearch(boulderLatLng)).then((data) => {
-      console.log(data);
-      // expect(store.getActions()).toEqual(expectedActions)
-    })
-
-    axios.get.restore();
+    expect(result.type).to.equal(types.NEW_DATA);
+    expect(result.payload.toString()).to.equal("[object Promise]");
   });
 
 });
