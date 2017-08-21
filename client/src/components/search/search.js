@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { newSearch, handleError } from '../../actions';
 
-class SearchLocation extends React.Component {
+export class SearchLocation extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -14,7 +14,7 @@ class SearchLocation extends React.Component {
   }
 
   componentDidMount() {
-    this.handleFormSubmit(event);
+    this.handleFormSubmit();
   }
 
   handleFormSubmit = (event) => {
