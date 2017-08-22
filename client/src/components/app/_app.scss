@@ -6,6 +6,8 @@
   }
 
   h1 {
+    z-index: 250;
+    position:relative;
     text-align: center;
     text-transform: uppercase;
     font-size: $base-font-size * 3;

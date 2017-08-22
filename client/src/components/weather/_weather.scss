@@ -58,7 +58,7 @@
   	width: 200px;
     height: 60px;
   	background: #fff;
-
+    float:left;
   	border-radius: 200px;
   	-moz-border-radius: 200px;
   	-webkit-border-radius: 200px;
@@ -66,8 +66,13 @@
   	position: relative;
   }
 
+  .clouds {
+    position: absolute;
+    top: 70px;
+  }
+
   @media #{$mq-mobile} {
-    .cloud {
+    .clouds {
       display: none;
     }
    }
@@ -136,7 +141,7 @@
     }
 
     .cloud4 {
-    	left: 270px; top: 20px;
+    	left: 270px; top: 120px;
 
     	-webkit-transform: scale(0.75);
     	-ms-transform: scale(0.75);
@@ -149,7 +154,7 @@
     }
 
     .cloud5 {
-    	left: 150px; top: 50px;
+    	left: 150px; top: 150px;
 
     	-webkit-transform: scale(0.8);
     	-ms-transform: scale(0.8);
@@ -162,7 +167,7 @@
     }
 
     .cloud6 {
-    	left: 150px; top: 60px;
+    	left: 150px; top: 160px;
 
     	-webkit-transform: scale(0.5);
     	-ms-transform: scale(0.5);
@@ -175,7 +180,7 @@
     }
 
     .cloud7 {
-    	left: 300px; top: 20px;
+    	left: 300px; top: 120px;
 
     	-webkit-transform: scale(0.4);
     	-ms-transform: scale(0.4);
@@ -201,7 +206,7 @@
     }
 
     .cloud9 {
-    	left: 70px; top: 30px;
+    	left: 70px; top: 130px;
 
     	-webkit-transform: scale(0.6);
     	-ms-transform: scale(0.6);
@@ -213,7 +218,7 @@
     	-o-animation: moveclouds 9s linear infinite;
     }
     .cloud10 {
-    	left: 120px; top: 10px;
+    	left: 120px; top: 110px;
 
     	-webkit-transform: scale(1);
     	-ms-transform: scale(1);
