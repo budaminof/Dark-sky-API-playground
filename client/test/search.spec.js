@@ -18,18 +18,17 @@ describe('----------- Search ----------------', () => {
 
   beforeEach(() => {
     wrapper = shallow(<SearchLocation { ...props } />);
-    component = wrapper.instance()
-    sinon.stub(component, 'handleFormSubmit').returns(true)
-    sinon.spy(component, 'setState')
+    component = wrapper.instance();
+    sinon.stub(component, 'handleFormSubmit').returns(true);
+    sinon.spy(component, 'setState');
   })
 
   afterEach(() => {
-    component.handleFormSubmit.restore()
-    component.setState.restore()
+    component.handleFormSubmit.restore();
+    component.setState.restore();
   })
 
   it('should call handleFormSubmit on componentDidMount', () => {
-
     component.componentDidMount();
     expect(component.handleFormSubmit.calledOnce).to.be.true;
     expect(component.handleFormSubmit.firstCall.args).to.deep.equal([]);
@@ -37,11 +36,11 @@ describe('----------- Search ----------------', () => {
   });
 
   it('should call handleFormSubmit when the form is submitted', function() {
-
     const form = wrapper.find('form').node;
-    form.node.props.onSubmit();
+
+    form.props.onSubmit([]);
     expect(component.handleFormSubmit.calledOnce).to.be.true;
-    expect(component.handleFormSubmit.firstCall.args).to.deep.equal([]);
+    expect(component.handleFormSubmit.firstCall.args).to.deep.equal([[]]);
 
   });
 
