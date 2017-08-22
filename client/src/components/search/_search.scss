@@ -8,21 +8,29 @@
   .btn-wrapper {
     width: 100%;
     margin-top: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 
     button {
-      z-index: 300;
+      z-index: 250;
       text-transform: uppercase;
       padding: 5px 20px;
       border: none;
       color: white;
       border-radius: 2px;
+      -webkit-transition: ease all 1s;
+      -o-transition: ease all 1s;
       transition: ease all 1s;
       background-color: var(--temp-color-lighter);
     }
 
     button:active, button:hover {
+      -webkit-transition: ease all 1s;
+      -o-transition: ease all 1s;
       transition: ease all 1s;
       background-color: var(--temp-color-border);
     }

@@ -10,7 +10,7 @@ export default class Weather extends Component {
       let name = `cloud${i+1} cloud`
       cloudCoverage.push(<div className={name} key={i}></div>);
     }
-
+    
     return (
       <div className='weather'>
         <div className="clouds">

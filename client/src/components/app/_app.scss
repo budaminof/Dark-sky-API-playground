@@ -14,6 +14,8 @@
     font-weight: bold;
     margin-top: 1em;
     margin-bottom: 1em;
+    -webkit-transition: ease all 2s;
+    -o-transition: ease all 2s;
     transition: ease all 2s;
     background: -webkit-linear-gradient( 180deg, var(--temp-color-lighter), var(--temp-color));
     -webkit-background-clip: text;
