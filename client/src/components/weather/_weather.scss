@@ -83,13 +83,6 @@
 	position: relative;
 }
 
-// @media #{$mq-mobile} {
-//   .clouds {
-//     display: none;
-//   }
-//  }
-
-
 .cloud:before, .cloud:after {
 	content: '';
 	position: absolute;
