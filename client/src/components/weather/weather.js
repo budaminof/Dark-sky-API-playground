@@ -21,8 +21,9 @@ export default class Weather extends Component {
            <h2> { this.props.forecast.data.currently.temperature.toFixed(0) } <span> &deg; </span>
                 { this.props.forecast.data.currently.summary }
            </h2>
+           <h3> { this.props.forecast.data.minutely.summary } </h3>
+           <img src={'/../assets/' + this.props.forecast.data.currently.icon + '.png'} ></img>
            <h4> { this.props.forecast.data.daily.summary } </h4>
-           <img className="test" src={'/../assets/' + this.props.forecast.data.daily.icon + '.png'} ></img>
         </div>
       </div>
     );

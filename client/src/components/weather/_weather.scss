@@ -14,9 +14,14 @@
         }
     }
 
-    h4 {
+    h3 {
       color: var(--temp-color-border);
       margin-top: 40px;
+      letter-spacing: 0.1em;
+    }
+
+    h4 {
+      color: var(--temp-color-border);
       letter-spacing: 0.1em;;
     }
 
@@ -24,6 +29,7 @@
       height: 10em;
       height: 250px;
       width: 250px;
+      margin: 0px 0px;
     }
 
   }
