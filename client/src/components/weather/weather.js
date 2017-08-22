@@ -18,9 +18,9 @@ export default class Weather extends Component {
         </div>
 
         <div className="forecast col-md-12 col-xs-10">
-           <h3> { this.props.forecast.data.currently.temperature.toFixed(0) } <span> &deg; </span>
+           <h2> { this.props.forecast.data.currently.temperature.toFixed(0) } <span> &deg; </span>
                 { this.props.forecast.data.currently.summary }
-           </h3>
+           </h2>
            <h4> { this.props.forecast.data.daily.summary } </h4>
            <img className="test" src={'/../assets/' + this.props.forecast.data.daily.icon + '.png'} ></img>
         </div>
