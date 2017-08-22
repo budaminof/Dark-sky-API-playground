@@ -20,7 +20,7 @@
       text-transform: uppercase;
       padding: 5px 20px;
       border: none;
-      color: white;
+      color: $base-color;
       border-radius: 2px;
       -webkit-transition: ease all 1s;
       -o-transition: ease all 1s;
@@ -32,7 +32,7 @@
       -webkit-transition: ease all 1s;
       -o-transition: ease all 1s;
       transition: ease all 1s;
-      background-color: var(--temp-color-border);
+      background-color: var(--temp-color);
     }
   }
 

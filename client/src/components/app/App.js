@@ -40,9 +40,8 @@ export class App extends Component {
     // h1 color
     document.documentElement.style.setProperty(`--temp-color`, `hsl(${ hue }, 100%, 48%)` );
     // button color
-    document.documentElement.style.setProperty(`--temp-color-lighter`, `hsl(${ hue + 30 }, 100%, 48%)` );
-    // border color
-    document.documentElement.style.setProperty(`--temp-color-border`, `hsl(${ hue - 20 }, 100%, 20%)` );
+    document.documentElement.style.setProperty(`--temp-color-lighter`, `hsl(${ hue + 20 }, 100%, 48%)` );
+    
     return
   }
 
