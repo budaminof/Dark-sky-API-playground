@@ -49,7 +49,7 @@ export class App extends Component {
   render() {
     return (
       <div className='app'>
-        <div className="app-top container col-xs-12">
+        <div className="app-top col-md-12 col-sm-12 col-xs-12">
           <h5 className="logo"><img src="../darksky.png"></img>Powered by Dark Sky</h5>
           <h1>
               Outside Is...

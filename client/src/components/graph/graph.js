@@ -28,13 +28,13 @@ export default class Graph extends Component {
     }
 
     return (
-      <div className='graph container col-md-10 col-md-offset-1 col-xs-12'>
+      <div className='graph container col-md-10 col-md-offset-1 col-sm-12 col-xs-12'>
         <h3>How is our week looking?</h3>
 
         <ResponsiveContainer width="100%" height={ 300 } >
           <AreaChart
             data={ data }
-            margin={{ top: 10, right: 0, left: 0, bottom: 0 }} >
+            margin={{ top: 10, right: 0, left: -20, bottom: 0 }} >
 
             <defs>
               <linearGradient id="min" x1="0" y1="0" x2="0" y2="1">

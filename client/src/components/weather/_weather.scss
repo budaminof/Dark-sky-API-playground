@@ -55,7 +55,8 @@
   }
 
   .cloud {
-  	width: 200px; height: 60px;
+  	width: 200px;
+    height: 60px;
   	background: #fff;
 
   	border-radius: 200px;
@@ -65,11 +66,19 @@
   	position: relative;
   }
 
+  @media #{$mq-mobile} {
+    .cloud {
+      display: none;
+    }
+   }
+
+
   .cloud:before, .cloud:after {
   	content: '';
   	position: absolute;
   	background: #fff;
-  	width: 100px; height: 80px;
+  	width: 100px;
+    height: 80px;
   	position: absolute; top: -15px; left: 10px;
 
   	border-radius: 100px;

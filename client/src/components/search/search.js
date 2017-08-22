@@ -37,14 +37,14 @@ export class SearchLocation extends React.Component {
     }
 
     const styleContainer = {
-      input: { zIndex: 300 },
-      autocompleteContainer: { zIndex: 300 },
+      root: { zIndex: 250 },
+      autocompleteContainer: { zIndex: 250 },
       googleLogoContainer: { display: 'none' }
     }
 
     return (
       <div className="row">
-        <div className="container col-md-4 col-md-offset-4">
+        <div className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
           <div className="form-location">
             <form onSubmit={ this.handleFormSubmit } >
               <PlacesAutocomplete

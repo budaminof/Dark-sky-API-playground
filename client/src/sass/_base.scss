@@ -4,11 +4,11 @@ body {
   color: $base-color;
   font-size: $base-font-size;
 
-
   input:focus,
   select:focus,
   textarea:focus,
   button:focus {
       outline: none;
   }
+
 }
