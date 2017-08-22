@@ -17,7 +17,7 @@ export default class Weather extends Component {
         { cloudCoverage }
         </div>
 
-        <div className="forecast col-md-12 col-xs-10">
+        <div className="forecast col-md-12 col-xs-12">
            <h2> { this.props.forecast.data.currently.temperature.toFixed(0) } <span> &deg; </span>
                 { this.props.forecast.data.currently.summary }
            </h2>

@@ -1,5 +1,4 @@
 .weather {
-
   .forecast {
     text-align: center;
     overflow: hidden;
@@ -35,6 +34,15 @@
   }
 }
 
+@media #{$mq-mobile} {
+  .weather {
+
+    h3 {
+      font-size: $base-font-size * 2.5;
+      letter-spacing: 0em;
+    }
+  }
+ }
 
   @-webkit-keyframes moveclouds {
   	0% {
