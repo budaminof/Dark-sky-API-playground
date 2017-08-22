@@ -47,10 +47,11 @@ describe('----------- Search ----------------', () => {
 
   it('should call setState when input changes', function() {
     const input = wrapper.find('PlacesAutocomplete').node;
-    input.props.inputProps.onChange("Boston, MA");
+    input.props.inputProps.onChange("Tel Aviv, Israel");
 
     expect(component.setState.calledOnce).to.be.true;
-    expect(component.setState.firstCall.args).to.deep.equal([{address: "Boston, MA"}]);
+    expect(component.setState.firstCall.args).to.deep.equal([{address: "Tel Aviv, Israel"}]);
+    expect(component.state).to.deep.equal({address: "Tel Aviv, Israel"});
   });
-  
+
 });
