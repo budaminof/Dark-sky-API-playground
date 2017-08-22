@@ -18,7 +18,7 @@ describe('----------- Weather ----------------', () => {
     expect(summary[4]).to.equal(data.currently.summary);
 
     const description = wrapper.find('h3').getNode().props.children;
-    expect(description[1]).to.equal(data.minutely.summary);
+    expect(description[1]).to.equal(data.hourly.summary);
 
     const icon = wrapper.find('img').getNode();
     const iconName = data.daily.icon;

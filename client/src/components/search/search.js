@@ -46,7 +46,7 @@ export class SearchLocation extends React.Component {
       <div className="row">
         <div className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
           <div className="form-location">
-            <form onSubmit={ this.handleFormSubmit } >
+            <form onSubmit={ () => this.handleFormSubmit() } >
               <PlacesAutocomplete
                 inputProps ={ inputProps }
                 styles = { styleContainer }

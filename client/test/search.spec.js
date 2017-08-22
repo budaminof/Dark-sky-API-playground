@@ -1,9 +1,8 @@
 import React from 'react';
 import { expect } from 'chai';
-import { mount, shallow, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { SearchLocation } from '../src/components/search/search';
-
 import { newSearch, handleError } from '../src/actions/index';
 
 describe('----------- Search ----------------', () => {
@@ -19,32 +18,39 @@ describe('----------- Search ----------------', () => {
 
   beforeEach(() => {
     wrapper = shallow(<SearchLocation { ...props } />);
-    component = wrapper.instance();
-    sinon.stub(component, 'handleFormSubmit').returns(true);
-
+    component = wrapper.instance()
+    sinon.stub(component, 'handleFormSubmit').returns(true)
+    sinon.spy(component, 'setState')
   })
+
   afterEach(() => {
-    component.handleFormSubmit.restore();
+    component.handleFormSubmit.restore()
+    component.setState.restore()
   })
 
-  it('should call handleFormSubmit on componentDidMount without arguments', () => {
-    component.componentDidMount();
+  it('should call handleFormSubmit on componentDidMount', () => {
 
+    component.componentDidMount();
     expect(component.handleFormSubmit.calledOnce).to.be.true;
     expect(component.handleFormSubmit.firstCall.args).to.deep.equal([]);
 
   });
 
-  it('should call handleFormSubmit with arguments from state',function() {
-    const state = {address: 'Boulder, CO'};
-    const form = wrapper.find('form').first();
+  it('should call handleFormSubmit when the form is submitted', function() {
 
-    // simulate will trigger the google call. and we dont have google require
-    // need to figure out how to require google api script, that is now in index.html
-    // form.simulate('submit');
-    component.handleFormSubmit(state.address);
+    const form = wrapper.find('form');
+    form.node.props.onSubmit();
     expect(component.handleFormSubmit.calledOnce).to.be.true;
-    expect(component.handleFormSubmit.firstCall.args).to.deep.equal([state.address]);
+    expect(component.handleFormSubmit.firstCall.args).to.deep.equal([]);
 
-  })
+  });
+
+  it('should call setState when input changes', function() {
+    const input = wrapper.find('PlacesAutocomplete').node;
+    input.props.inputProps.onChange("Boston, MA");
+
+    expect(component.setState.calledOnce).to.be.true;
+    expect(component.setState.firstCall.args).to.deep.equal([{address: "Boston, MA"}]);
+  });
+  
 });
