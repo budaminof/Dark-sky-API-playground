@@ -52,7 +52,7 @@ export class App extends Component {
         <div className="app-top container col-xs-12">
           <h5 className="logo"><img src="../darksky.png"></img>Powered by Dark Sky</h5>
           <h1>
-              Winter is coming
+              Outside Is...
             </h1>
           <Search />
         </div>

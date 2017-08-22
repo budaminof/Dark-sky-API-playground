@@ -94,11 +94,11 @@
   	top: -55px; left: auto; right: 15px;
     }
 
-    .cloud0 {
-      -webkit-animation: moveclouds 5s linear infinite;
-      -moz-animation: moveclouds 5s linear infinite;
-      -o-animation: moveclouds 5s linear infinite;
-    }
+    // .cloud0 {
+    //   -webkit-animation: moveclouds 5s linear infinite;
+    //   -moz-animation: moveclouds 5s linear infinite;
+    //   -o-animation: moveclouds 5s linear infinite;
+    // }
 
     .cloud1 {
       left: 10px; top: 100px;
@@ -140,7 +140,7 @@
     }
 
     .cloud4 {
-    	left: 470px; top: 20px;
+    	left: 270px; top: 20px;
 
     	-webkit-transform: scale(0.75);
     	-moz-transform: scale(0.75);

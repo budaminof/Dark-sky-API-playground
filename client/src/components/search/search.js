@@ -37,7 +37,8 @@ export class SearchLocation extends React.Component {
     }
 
     const styleContainer = {
-      autocompleteContainer: { zIndex: 100 },
+      input: { zIndex: 300 },
+      autocompleteContainer: { zIndex: 300 },
       googleLogoContainer: { display: 'none' }
     }
 
