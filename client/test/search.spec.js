@@ -38,7 +38,7 @@ describe('----------- Search ----------------', () => {
 
   it('should call handleFormSubmit when the form is submitted', function() {
 
-    const form = wrapper.find('form');
+    const form = wrapper.find('form').node;
     form.node.props.onSubmit();
     expect(component.handleFormSubmit.calledOnce).to.be.true;
     expect(component.handleFormSubmit.firstCall.args).to.deep.equal([]);

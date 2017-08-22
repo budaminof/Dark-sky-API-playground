@@ -18,7 +18,7 @@ export class SearchLocation extends React.Component {
   }
 
   handleFormSubmit = (event) => {
-    if (event) event.preventDefault()
+    if (event) event.preventDefault();
 
     geocodeByAddress(this.state.address)
       .then(results => getLatLng(results[0]))
@@ -46,7 +46,7 @@ export class SearchLocation extends React.Component {
       <div className="row">
         <div className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
           <div className="form-location">
-            <form onSubmit={ () => this.handleFormSubmit() } >
+            <form onSubmit={ (e) => this.handleFormSubmit(e) } >
               <PlacesAutocomplete
                 inputProps ={ inputProps }
                 styles = { styleContainer }
