@@ -1,6 +1,6 @@
-## Dark Sky
+## Outside is / Dark Sky
 
- [winter-is-coming-dark-sky](https://winter-is-coming-dark-sky.herokuapp.com/)
+ [outside-is](https://outside-is.herokuapp.com)
 
 
 To run this project in development:
